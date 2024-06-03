@@ -9,8 +9,8 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="container bg-secondaryBlue py-20 text-white">
-      <div className="flex justify-between border border-white p-8">
+    <footer className="bg-secondaryBlue py-20 text-white">
+      <div className="container flex justify-between border border-white p-8">
         <div className="flex flex-1 flex-col gap-8">
           <img src={footerLogo} alt="BradWell-logo" width={120} />
 
