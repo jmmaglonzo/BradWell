@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 const rootLayout = () => {
   return (
     <>
-      <header className="fixed top-0 w-full bg-white">
+      <header className="fixed top-0 z-50 w-full bg-white">
         <Navbar />
       </header>
 
