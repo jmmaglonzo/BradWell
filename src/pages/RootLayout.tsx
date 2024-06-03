@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../Navbar";
+import Navbar from "@/components/Navbar";
 
 const rootLayout = () => {
   return (
@@ -8,7 +8,7 @@ const rootLayout = () => {
         <Navbar />
       </header>
 
-      <main className="mt-28">
+      <main className="mt-12">
         <Outlet />
       </main>
     </>

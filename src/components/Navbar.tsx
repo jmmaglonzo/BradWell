@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <nav className="container flex items-center justify-between">
       <Link to={"/"}>
-        <img src={logo} alt="BradWell Logo" />
+        <img src={logo} alt="BradWell Logo" width={50} />
       </Link>
       <ul className="flex flex-1 items-center gap-4">
         {links.map((c) => (
@@ -36,8 +36,13 @@ const Navbar = () => {
       </ul>
 
       <div className="flex gap-2">
-        <Button variant={"ghost"}>Login</Button>
-        <Button className="bg-primaryOrange hover:bg-primaryOrange/90 font-semibold text-white">
+        <Button
+          variant={"secondary"}
+          className="border border-slate-700 px-8 text-sm"
+        >
+          Login
+        </Button>
+        <Button className="bg-primaryOrange hover:bg-primaryOrange/90 font-semibol4 px-8 text-sm text-white">
           Signup
         </Button>
       </div>
