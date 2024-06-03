@@ -6,8 +6,8 @@ import servicesImg from "@/assets/kevin-matos-Nl_FMFpXo2g-unsplash 1.jpg";
 
 const Services = () => {
   return (
-    <section className="container bg-secondaryBlue py-20">
-      <div className="flex flex-col items-center gap-6 text-center text-white">
+    <section className="bg-secondaryBlue py-20">
+      <div className="container flex flex-col items-center gap-6 text-center text-white">
         <h3 className="text-4xl font-bold uppercase">Services</h3>
         <p className="w-1/2">
           At Bradwell, we specialize in providing top-quality products and
