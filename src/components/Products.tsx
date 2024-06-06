@@ -1,53 +1,29 @@
-import product1 from "@/assets/Gallery/1.jpg";
-import product2 from "@/assets/Gallery/2.png";
-import product3 from "@/assets/Gallery/3.jpg";
-import product4 from "@/assets/Gallery/4.jpg";
-import product5 from "@/assets/Gallery/5.jpg";
-import product6 from "@/assets/Gallery/6.jpg";
-
-const products = [
-  {
-    key: "product1",
-    img: product1,
-  },
-  {
-    key: "product2",
-    img: product2,
-  },
-  {
-    key: "product3",
-    img: product3,
-  },
-  {
-    key: "product4",
-    img: product4,
-  },
-  {
-    key: "product5",
-    img: product5,
-  },
-  {
-    key: "product6",
-    img: product6,
-  },
-];
+import { products } from "@/utils/products";
 
 const Products = () => {
   return (
-    <section className="container py-20">
-      <div className="flex flex-col gap-4 text-center">
-        <h2 className="text-4xl font-bold uppercase">Products</h2>
-        <p>
-          Discover solutions for every industry, from food & beverage to
-          household & industrial.
-        </p>
-      </div>
-      <div className="mt-12 grid grid-cols-3 gap-4">
-        {products.map((p) => (
-          <div key={p.key}>
-            <img src={p.img} alt={p.key} />
-          </div>
-        ))}
+    <section className="container px-4 py-20" id="products">
+      <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-2 text-center md:gap-4">
+          <h3 className="text-4xl font-bold uppercase">products</h3>
+          <p className="text-lg md:text-xl">
+            Discover solutions for every industry, from food & beverage to
+            household & industrial.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((c) => (
+            <div
+              key={c.label}
+              className="relative overflow-hidden rounded-md text-center text-white"
+            >
+              <img src={c.img} alt={c.label} className="w-full" />
+              <span className="absolute bottom-0 left-0 right-0 bg-primaryOrange p-3 text-xl font-medium">
+                {c.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

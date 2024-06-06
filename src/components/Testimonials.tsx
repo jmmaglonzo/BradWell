@@ -1,54 +1,74 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import profile from "@/assets/profile.svg";
-import juliesbakeshop from "@/assets/juliesbakeshop.svg";
-import { FaStar } from "react-icons/fa6";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { carousel } from "@/utils/carousel";
+import fiveStar from "@/assets/5-star.png";
+import Autoplay from "embla-carousel-autoplay";
+import { type CarouselApi } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 const Testimonials = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
   return (
-    <section className="container py-20">
-      <div className="flex items-center">
-        <ChevronLeft size={120} />
-        <div className="flex flex-col items-center gap-6 text-center">
-          <div className="flex items-center gap-1">
-            <FaStar className="text-yellow-300" />
-            <FaStar className="text-yellow-300" />
-            <FaStar className="text-yellow-300" />
-            <FaStar className="text-yellow-300" />
-            <FaStar className="text-yellow-300" />
-          </div>
-          <p className="w-1/2">
-            Bradwell has been a game-changer for our bakery. Their extensive
-            ingredient catalog allows us to find everything we need, from
-            classic flours and sugars to unique flavor extracts and seasonal
-            ingredients. The quality is always top-notch, and their customer
-            service team is incredibly knowledgeable and helpful. They've been
-            instrumental in helping us create innovative new pastries and keep
-            our customers coming back for more.
-          </p>
+    <section className="container flex flex-col items-center justify-center py-32">
+      <Carousel
+        setApi={setApi}
+        className="flex w-full max-w-xl lg:max-w-4xl"
+        opts={{
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+      >
+        <CarouselContent>
+          {carousel.map((c) => (
+            <CarouselItem key={c.name}>
+              <Card className="border-none shadow-none">
+                <CardContent className="flex flex-col items-center gap-6 p-4 text-center">
+                  <img
+                    src={fiveStar}
+                    alt="five-star"
+                    className="w-24 lg:w-32"
+                  />
 
-          <div className="mt-4 flex items-center justify-center">
-            <div className="flex items-center gap-2 border-r-2 border-slate-700 pr-6">
-              <img
-                src={profile}
-                alt="userProfile"
-                className="h-10 w-10 rounded-full"
-              />
-              <div className="flex flex-col">
-                <span className="font-bold">Julie Ann</span>
-                <span>Store Owner</span>
-              </div>
-            </div>
-            <img src={juliesbakeshop} alt="julie's bakeshop" />
-          </div>
-        </div>
-        <ChevronRight size={120} />
-      </div>
-
-      <div className="mt-12 flex justify-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-slate-950"></div>
-        <div className="h-2 w-2 rounded-full bg-slate-400"></div>
-        <div className="h-2 w-2 rounded-full bg-slate-400"></div>
-        <div className="h-2 w-2 rounded-full bg-slate-400"></div>
-        <div className="h-2 w-2 rounded-full bg-slate-400"></div>
+                  <p className="text-sm xl:text-xl">{c.desc}</p>
+                  <span className="text-xl font-medium md:text-2xl">
+                    {c.name}
+                  </span>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden border-none md:block xl:-left-28" />
+        <CarouselNext className="hidden border-none md:block xl:-right-28" />
+      </Carousel>
+      <div className="mt-6 flex space-x-2 py-2 text-center text-sm text-muted-foreground">
+        {carousel.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 w-2 rounded-full ${current === index + 1 ? "bg-black" : "bg-gray-400"}`}
+          ></div>
+        ))}
       </div>
     </section>
   );
