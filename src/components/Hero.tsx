@@ -29,16 +29,16 @@ const Hero = () => {
           triggerOnce={true}
           className="flex justify-center"
         >
-          <p className="text-sm font-medium md:w-[80%] md:text-lg lg:w-[70%] lg:text-2xl">
+          <p className="text-sm font-medium md:w-[80%] md:text-lg lg:w-[70%] lg:text-xl">
             Bradwell is a one-stop shop for ingredients and chemicals used in
             food, beverages, household products, and industrial applications.
           </p>
         </Fade>
 
-        <Fade direction="up" triggerOnce={true}>
+        <Fade direction="up" triggerOnce={true} className="w-full md:w-auto">
           <a
             href="#products"
-            className="mt-8 inline-block w-full rounded-sm bg-primaryOrange px-16 py-2 text-lg font-medium text-white hover:bg-primaryOrange/90 md:w-auto"
+            className="inline-block w-full rounded-sm bg-primaryOrange px-16 py-2 text-lg font-medium text-white hover:bg-primaryOrange/90 xl:mt-8"
           >
             Products
           </a>
