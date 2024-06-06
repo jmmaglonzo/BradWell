@@ -1,10 +1,15 @@
 import heroLogo from "/src/assets/hero-logo.png";
-
+import herobg from "@/assets/bg-hero.jpg";
 const Hero = () => {
   return (
-    <section className="flex h-screen items-center justify-center bg-secondaryBlue/70 bg-[url('/src/assets/bg-hero.jpg')] bg-cover bg-center bg-no-repeat py-20 bg-blend-overlay">
+    <section className="relative flex h-screen items-center justify-center bg-gradient-to-t from-secondaryBlue to-transparent">
+      <img
+        src={herobg}
+        alt="hero image"
+        className="absolute -z-20 h-full w-full bg-center bg-no-repeat object-cover"
+      />
       <div className="container flex flex-col items-center justify-center space-y-4 px-4 text-center text-white">
-        <div className="w-60 rounded-full md:w-72 xl:mt-20">
+        <div className="w-60 rounded-full md:w-72">
           <img src={heroLogo} alt="Bradwell-logo" className="w-full" />
         </div>
 
