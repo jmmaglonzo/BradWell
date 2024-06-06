@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import footerLogo from "@/assets/bradwell-footer.png";
+import footerLogo from "@/assets/bradwell-logo-white.png";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 const Footer = () => {

@@ -1,4 +1,4 @@
-import servicesImg from "@/assets/kevin-matos-Nl_FMFpXo2g-unsplash 1.jpg";
+import servicesImg from "@/assets/bg-service.jpg";
 import { services } from "@/utils/services";
 
 const Services = () => {
