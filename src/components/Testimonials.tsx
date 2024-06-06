@@ -27,8 +27,8 @@ const Testimonials = () => {
     });
   }, [api]);
   return (
-    <section className="container flex flex-col items-center justify-center py-32">
-      <Fade direction="up" triggerOnce={true}>
+    <Fade direction="up" triggerOnce={true}>
+      <section className="container flex flex-col items-center justify-center py-8 md:py-24 lg:py-32">
         <Carousel
           setApi={setApi}
           className="flex w-full max-w-xl lg:max-w-4xl"
@@ -72,8 +72,8 @@ const Testimonials = () => {
             ></div>
           ))}
         </div>
-      </Fade>
-    </section>
+      </section>
+    </Fade>
   );
 };
 

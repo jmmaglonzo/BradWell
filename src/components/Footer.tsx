@@ -5,7 +5,7 @@ import { FaTiktok } from "react-icons/fa6";
 import { Fade } from "react-awesome-reveal";
 const Footer = () => {
   return (
-    <section className="bg-secondaryBlue pb-8 pt-16 text-center">
+    <section className="bg-secondaryBlue pb-8 pt-16 text-start lg:text-center">
       <Fade triggerOnce={true}>
         <div className="container flex flex-col items-center justify-between gap-8 border-b border-gray-400 px-8 pb-16 lg:flex-row">
           <img
@@ -20,7 +20,7 @@ const Footer = () => {
               alt="bradwell-logo"
               className="hidden w-40 lg:block"
             />
-            <ul className="flex flex-col items-center gap-4 text-white lg:items-start lg:gap-8">
+            <ul className="flex flex-col items-start gap-4 text-white lg:gap-8">
               <li className="flex items-center gap-2">
                 <Icon icon="carbon:location-filled" color="F15725" width={40} />
                 <a
@@ -106,14 +106,20 @@ const Footer = () => {
                 <FaInstagram size={50} className="text-primaryOrange" />
               </a>
               <a href="https://www.tiktok.com/@bradwellcorp">
-                <FaTiktok size={50} className="text-primaryOrange" />
+                <FaTiktok
+                  size={50}
+                  className="text-primaryOrange"
+                  target="_blank"
+                />
               </a>
             </ul>
           </div>
         </div>
-        <span className="mt-6 inline-block text-sm font-medium text-white lg:text-xl">
-          © 2024 Bradwell Sales & Marketing Corp. All Rights Reserved.
-        </span>
+        <div className="text-center">
+          <span className="mt-6 inline-block text-sm font-medium text-white lg:text-xl">
+            © 2024 Bradwell Sales & Marketing Corp. All Rights Reserved.
+          </span>
+        </div>
       </Fade>
     </section>
   );
